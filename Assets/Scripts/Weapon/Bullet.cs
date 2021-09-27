@@ -5,17 +5,18 @@ using UnityEngine;
 public class Bullet
 {
     private Dictionary<DamageType, int> damage;
-    private List<BulletDecorator> decorators;
+    private List<DamageDecorator> decorators;
 
     public Bullet(int _damage)
     {
         damage.Add(DamageType.BASE, _damage);
 
-        Decorate(new BulletDecorator(DamageType.FIRE, 10));
-        Decorate(new BulletDecorator(DamageType.FIRE, 10));
+        Decorate(new DamageDecorator(DamageType.FIRE, 10));
+        Decorate(new DamageDecorator(DamageType.FIRE, 4));
+        Decorate(new DamageDecorator(DamageType.SASS, 10));
     }
 
-    public void Decorate(BulletDecorator _decorator)
+    public void Decorate(DamageDecorator _decorator)
     {
         decorators.Add(_decorator);
 

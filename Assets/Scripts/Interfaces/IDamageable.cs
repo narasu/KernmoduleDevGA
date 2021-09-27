@@ -5,5 +5,6 @@ using UnityEngine;
 public interface IDamageable
 {
     int pHealth { get; set; }
+
     void TakeDamage(int _damage);
 }
