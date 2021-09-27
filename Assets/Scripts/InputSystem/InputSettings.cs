@@ -9,6 +9,7 @@ public class InputSettings
     public KeyCode backward = KeyCode.S;
     public KeyCode left = KeyCode.A;
     public KeyCode right = KeyCode.D;
+    public KeyCode reload = KeyCode.R;
     public KeyCode menu = KeyCode.Escape;
 
     private InputHandler inputHandler;
@@ -20,5 +21,6 @@ public class InputSettings
         inputHandler.AddCommand(backward, EventType.MOVE_BACKWARDS);
         inputHandler.AddCommand(left, EventType.MOVE_LEFT);
         inputHandler.AddCommand(right, EventType.MOVE_RIGHT);
+        inputHandler.AddCommand(reload, EventType.RELOAD);
     }
 }
