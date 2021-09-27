@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public class Weapon
 {
-    // Start is called before the first frame update
-    void Start()
+    private int ammo;
+    private int maxAmmo;
+
+    public Weapon(int _maxAmmo)
     {
-        
+        maxAmmo = _maxAmmo;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Shoot(int _damage)
     {
-        
+        Bullet bullet = new Bullet(_damage);
     }
 }

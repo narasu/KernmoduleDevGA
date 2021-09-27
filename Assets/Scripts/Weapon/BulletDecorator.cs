@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletDecorator : MonoBehaviour
+public class BulletDecorator
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int pDamage { get; private set; }
 
-    // Update is called once per frame
-    void Update()
+    public DamageType pDamageType { get; private set; }
+    
+    public BulletDecorator(DamageType _damageType, int _damage)
     {
-        
+        pDamageType = _damageType;
+        pDamage = _damage;
     }
 }
