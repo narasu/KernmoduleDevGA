@@ -13,20 +13,23 @@ public class Weapon
         ammo = maxAmmo;
     }
 
-    public void Shoot(int _damage)
+    public void Shoot(int _damage) //TODO: subscribe to Shoot Input event
     {
         if (ammo <= 0)
         {
+            Debug.Log("Out of ammo!");
             Reload();
             return;
         }
-
-        Bullet bullet = new Bullet(_damage);
+        Debug.Log("Shooting");
+        IProjectile bullet = new Bullet(_damage);
+        bullet.OnHit();
         ammo--;
     }
 
-    public void Reload()
+    public void Reload() //TODO: subscribe to Reload Input event
     {
+        Debug.Log("Reloading");
         ammo = maxAmmo;
     }
 }
