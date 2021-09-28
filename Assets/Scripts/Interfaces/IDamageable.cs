@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IDamageable
 {
-    int pHealth { get; }
+    HealthComponent pHealthComponent { get; }
 
     void TakeDamage(int _damage);
     void OnHealthZero();
