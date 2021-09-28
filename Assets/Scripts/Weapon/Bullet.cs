@@ -5,7 +5,6 @@ using UnityEngine;
 public class Bullet : IProjectile, IDamager
 {
     private Dictionary<DamageType, float> damage = new Dictionary<DamageType, float>();
-
     public DamageInfo pDamageInfo
     {
         get; private set;
@@ -18,6 +17,17 @@ public class Bullet : IProjectile, IDamager
         Decorate(new DamageDecorator(new DamageInfo(10.0f, DamageType.FIRE)));
         Decorate(new DamageDecorator(new DamageInfo(4.0f, DamageType.FIRE)));
         Decorate(new DamageDecorator(new DamageInfo(10.0f, DamageType.SASS)));
+    }
+
+    public void Update()
+    {
+        /* TODO:
+         * move in direction
+         * if (collision)
+         * {
+         *     OnHit();
+         * }
+         */
     }
 
     public void Decorate(DamageDecorator _decorator)

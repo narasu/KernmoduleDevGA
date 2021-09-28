@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class DamageDecorator
 {
-    public float pDamage { get; private set; }
-    public DamageType pDamageType { get; private set; } = DamageType.BASE;
+    public float pDamage 
+    { 
+        get; private set; 
+    }
+    public DamageType pDamageType 
+    { 
+        get; 
+        private set; 
+    } = DamageType.BASE;
     
     public DamageDecorator(DamageInfo _damageInfo)
     {

@@ -4,5 +4,8 @@ using UnityEngine;
 
 public interface IDamager
 {
-    DamageInfo pDamageInfo { get; }
+    DamageInfo pDamageInfo 
+    { 
+        get; 
+    }
 }
