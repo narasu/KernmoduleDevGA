@@ -23,7 +23,7 @@ public class Bullet : IProjectile, IDamager
     {
         /* TODO:
          * move in direction
-         * if (collision)
+         * if (collision with IDamageable)
          * {
          *     OnHit();
          * }
@@ -46,5 +46,6 @@ public class Bullet : IProjectile, IDamager
         {
             Debug.Log("Did " + kvp.Value + " damage of type " + kvp.Key);
         }
+        //destroy gameobject
     }
 }

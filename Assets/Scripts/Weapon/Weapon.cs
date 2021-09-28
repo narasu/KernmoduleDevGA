@@ -39,6 +39,6 @@ public class Weapon
 
     ~Weapon()
     {
-        EventManager.UnSubscribe(EventType.RELOAD, Reload);
+        EventManager.Unsubscribe(EventType.RELOAD, Reload);
     }
 }
