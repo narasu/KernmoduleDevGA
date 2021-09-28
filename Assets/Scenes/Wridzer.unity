@@ -412,6 +412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInstance: {fileID: 68646996}
   cameraInstance: {fileID: 38796693}
+  NPCPrefab: {fileID: 6223675296239806547, guid: 1c8993569ec978a4fb8ea9d2411407ac, type: 3}
 --- !u!4 &1159154185
 Transform:
   m_ObjectHideFlags: 0
