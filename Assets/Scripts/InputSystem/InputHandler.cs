@@ -40,7 +40,7 @@ public class InputHandler
         {
             if (Input.GetKey(entry.Key))
             {
-                EventManager<float>.Invoke(entry.Value, 1f);
+                EventManager.Invoke(entry.Value);
             }
         }
     }

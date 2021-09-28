@@ -12,21 +12,20 @@ public enum EventType
     MOVE_RIGHT       = 5
 }
 
-public static class EventManager<T>
+public static class EventManager
 {
-    private static Dictionary<EventType, System.Action<T>> eventDictionary = new Dictionary<EventType, System.Action<T>>();
+    private static Dictionary<EventType, System.Action> eventDictionary = new Dictionary<EventType, System.Action>();
 
-    public static void Subscribe(EventType _type, System.Action<T> _function)
+    public static void Subscribe(EventType _type, System.Action _function)
     {
         if (!eventDictionary.ContainsKey(_type))
         {
             eventDictionary.Add(_type, null);
-            Debug.Log("Added: " + _type + " to dictionary");
         }
         eventDictionary[_type] += _function;
     }
 
-    public static void UnSubscribe(EventType _type, System.Action<T> _function) 
+    public static void UnSubscribe(EventType _type, System.Action _function) 
     {
         if (eventDictionary.ContainsKey(_type) && eventDictionary[_type] != null)
         {
@@ -34,10 +33,9 @@ public static class EventManager<T>
         }
     }
 
-    public static void Invoke(EventType _type, T _arg1)
+    public static void Invoke(EventType _type)
     {
-        Debug.Log("Try to invoke: " + _type + " event");
-        eventDictionary[_type]?.Invoke(_arg1);
+        eventDictionary[_type]?.Invoke();
     }
 
 }
