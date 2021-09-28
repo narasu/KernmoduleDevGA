@@ -20,6 +20,11 @@ public class Bullet : IProjectile, IDamager
         Decorate(new DamageDecorator(new DamageInfo(10.0f, DamageType.SASS)));
     }
 
+    public void Update()
+    {
+
+    }
+
     public void Decorate(DamageDecorator _decorator)
     {
         if (!damage.ContainsKey(_decorator.pDamageType))
