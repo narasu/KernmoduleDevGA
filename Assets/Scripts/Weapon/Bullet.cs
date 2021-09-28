@@ -2,19 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : IProjectile
+public class Bullet : IProjectile, IDamager
 {
-    private Dictionary<DamageType, int> damage = new Dictionary<DamageType, int>();
+    private Dictionary<DamageType, float> damage = new Dictionary<DamageType, float>();
 
-    public Bullet(int _damage)
+    public DamageInfo pDamageInfo
     {
-        damage.Add(DamageType.BASE, _damage);
-        Decorate(new BulletDecorator(DamageType.FIRE, 10));
-        Decorate(new BulletDecorator(DamageType.FIRE, 4));
-        Decorate(new BulletDecorator(DamageType.SASS, 10));
+        get; private set;
     }
 
-    public void Decorate(BulletDecorator _decorator)
+    public Bullet(DamageInfo _damageInfo)
+    {
+        pDamageInfo = _damageInfo;
+        damage.Add(pDamageInfo.damageType, pDamageInfo.damage);
+        Decorate(new DamageDecorator(new DamageInfo(10.0f, DamageType.FIRE)));
+        Decorate(new DamageDecorator(new DamageInfo(4.0f, DamageType.FIRE)));
+        Decorate(new DamageDecorator(new DamageInfo(10.0f, DamageType.SASS)));
+    }
+
+    public void Decorate(DamageDecorator _decorator)
     {
         if (!damage.ContainsKey(_decorator.pDamageType))
         {
@@ -26,7 +32,7 @@ public class Bullet : IProjectile
 
     public void OnHit()
     {
-        foreach (KeyValuePair<DamageType, int> kvp in damage)
+        foreach (KeyValuePair<DamageType, float> kvp in damage)
         {
             Debug.Log("Did " + kvp.Value + " damage of type " + kvp.Key);
         }
