@@ -9,7 +9,8 @@ public enum EventType
     MOVE_FORWARDS    = 2,
     MOVE_BACKWARDS   = 3,
     MOVE_LEFT        = 4,
-    MOVE_RIGHT       = 5
+    MOVE_RIGHT       = 5,
+    SHOOT            = 6
 }
 
 public static class EventManager
@@ -25,7 +26,7 @@ public static class EventManager
         eventDictionary[_type] += _function;
     }
 
-    public static void UnSubscribe(EventType _type, System.Action _function) 
+    public static void Unsubscribe(EventType _type, System.Action _function) 
     {
         if (eventDictionary.ContainsKey(_type) && eventDictionary[_type] != null)
         {
