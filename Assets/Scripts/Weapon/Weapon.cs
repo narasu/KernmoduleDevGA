@@ -11,9 +11,10 @@ public class Weapon
     {
         maxAmmo = _maxAmmo;
         ammo = maxAmmo;
+        EventManager.Subscribe(EventType.RELOAD, Reload);
     }
 
-    public void Shoot(int _damage) //TODO: subscribe to Shoot Input event
+    public void Shoot() //TODO: subscribe to Shoot Input event
     {
         if (ammo <= 0)
         {
@@ -22,7 +23,7 @@ public class Weapon
             return;
         }
         Debug.Log("Shooting");
-        IProjectile bullet = new Bullet(_damage);
+        IProjectile bullet = new Bullet(new DamageInfo(1.0f));
         bullet.OnHit();
         ammo--;
     }
@@ -31,5 +32,10 @@ public class Weapon
     {
         Debug.Log("Reloading");
         ammo = maxAmmo;
+    }
+
+    ~Weapon()
+    {
+        EventManager.UnSubscribe(EventType.RELOAD, Reload);
     }
 }
