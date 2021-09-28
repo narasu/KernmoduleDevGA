@@ -11,6 +11,7 @@ public class InputSettings
     public KeyCode right = KeyCode.D;
     public KeyCode reload = KeyCode.R;
     public KeyCode menu = KeyCode.Escape;
+    public KeyCode shoot = KeyCode.Mouse1;
 
     private InputHandler inputHandler;
 
@@ -22,5 +23,6 @@ public class InputSettings
         inputHandler.AddCommand(left, EventType.MOVE_LEFT);
         inputHandler.AddCommand(right, EventType.MOVE_RIGHT);
         inputHandler.AddCommand(reload, EventType.RELOAD);
+        inputHandler.AddCommand(shoot, EventType.SHOOT);
     }
 }
