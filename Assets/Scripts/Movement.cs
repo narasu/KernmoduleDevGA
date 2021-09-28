@@ -11,31 +11,31 @@ public class Movement
     public Movement(GameObject _playetInstance)
     {
         playerInstance = _playetInstance;
-        EventManager<float>.Subscribe(EventType.MOVE_FORWARDS, Forward);
-        EventManager<float>.Subscribe(EventType.MOVE_BACKWARDS, Backward);
-        EventManager<float>.Subscribe(EventType.MOVE_LEFT, Left);
-        EventManager<float>.Subscribe(EventType.MOVE_RIGHT, Right);
+        EventManager.Subscribe(EventType.MOVE_FORWARDS, Forward);
+        EventManager.Subscribe(EventType.MOVE_BACKWARDS, Backward);
+        EventManager.Subscribe(EventType.MOVE_LEFT, Left);
+        EventManager.Subscribe(EventType.MOVE_RIGHT, Right);
     }
 
-    private void Forward(float _float)
+    private void Forward()
     {
         movement.x += 1;
         Move();
     }
 
-    private void Backward(float _float)
+    private void Backward()
     {
         movement.x -= 1;
         Move();
     }
 
-    private void Left(float _float)
+    private void Left()
     {
         movement.z += 1;
         Move();
     }
 
-    private void Right(float _float)
+    private void Right()
     {
         movement.z -= 1;
         Move();
