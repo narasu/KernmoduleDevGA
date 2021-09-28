@@ -2,24 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet
+public class Bullet : IProjectile
 {
-    private Dictionary<DamageType, int> damage;
-    private List<DamageDecorator> decorators;
+    private Dictionary<DamageType, int> damage = new Dictionary<DamageType, int>();
 
     public Bullet(int _damage)
     {
         damage.Add(DamageType.BASE, _damage);
-
-        Decorate(new DamageDecorator(DamageType.FIRE, 10));
-        Decorate(new DamageDecorator(DamageType.FIRE, 4));
-        Decorate(new DamageDecorator(DamageType.SASS, 10));
+        Decorate(new BulletDecorator(DamageType.FIRE, 10));
+        Decorate(new BulletDecorator(DamageType.FIRE, 4));
+        Decorate(new BulletDecorator(DamageType.SASS, 10));
     }
 
-    public void Decorate(DamageDecorator _decorator)
+    public void Decorate(BulletDecorator _decorator)
     {
-        decorators.Add(_decorator);
-
         if (!damage.ContainsKey(_decorator.pDamageType))
         {
             damage.Add(_decorator.pDamageType, _decorator.pDamage);
