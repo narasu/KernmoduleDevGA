@@ -1,10 +1,10 @@
-﻿internal class AttackState : AbstractState<Enemy>
+﻿public class AttackState : AbstractState<Enemy>
 {
-    private FSM<Enemy> enemyFSM;
+    private FSM<Enemy> owner;
 
-    public AttackState(FSM<Enemy> enemyFSM)
+    public AttackState(FSM<Enemy> _owner)
     {
-        this.enemyFSM = enemyFSM;
+        owner = _owner;
     }
 
     public override void OnEnter()

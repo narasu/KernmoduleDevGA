@@ -22,7 +22,10 @@ public class IdleState: AbstractState<Enemy>
     {
         if (Input.GetKey(KeyCode.F))
         {
+            //Transition class for the transitions -> abstract 
             owner.SwitchState(typeof(AttackState));
+            ////Voorbeeld opvragen enemyhealth
+            //owner.pOwner.health = 100;
         }
     }
 

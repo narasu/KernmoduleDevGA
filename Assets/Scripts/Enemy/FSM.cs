@@ -27,6 +27,7 @@ public class FSM<T>
     public void Update()
     {
         currentState?.OnUpdate();
+        //currentState?.CheckTransitions();
     }
 
     public void SwitchState(System.Type _type)
@@ -37,10 +38,5 @@ public class FSM<T>
         }
         currentState?.OnEnter();
     }
-
-    //public void Initialize(T _owner)
-    //    {
-    //        pOwner = _owner;
-    //    }
 
 }
