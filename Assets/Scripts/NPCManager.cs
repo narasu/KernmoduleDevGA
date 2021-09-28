@@ -10,12 +10,14 @@ public class NPCManager : MonoBehaviour
     private float baseTime = 2;
     private float speed = 1;
     private bool scared = false;
+    private float minSpawn = -50;
+    private float maxSpawn = 50;
 
     public NPCManager(GameObject _NPCInstance)
     {
         for (int i = 0; i < NPCCount; i++)
         {
-            Vector3 randomPos = new Vector3(Random.Range(-50, 50), 0, Random.Range(-50, 50));
+            Vector3 randomPos = new Vector3(Random.Range(minSpawn, maxSpawn), 0, Random.Range(minSpawn, maxSpawn));
             GameObject tempNPC = Instantiate(_NPCInstance, randomPos, new Quaternion());
             NPCList.Add(tempNPC);
         }
