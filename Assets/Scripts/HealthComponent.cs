@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class HealthComponent
 {
-    public int health;
+    public float health;
 
-    public HealthComponent(int _health)
+    public HealthComponent(float _health)
     {
         health = _health;
     }

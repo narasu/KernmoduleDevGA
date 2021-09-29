@@ -9,6 +9,6 @@ public interface IDamageable
         get; 
     }
 
-    void TakeDamage(int _damage);
+    void TakeDamage(float _damage);
     void OnHealthZero();
 }

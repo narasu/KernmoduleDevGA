@@ -6,12 +6,12 @@ public class DamageableExample : IDamageable
 {
     public HealthComponent pHealthComponent { get; set; }
 
-    public DamageableExample(int _health)
+    public DamageableExample(float _health)
     {
         pHealthComponent.health = _health;
     }
 
-    public void TakeDamage(int _damage)
+    public void TakeDamage(float _damage)
     {
         pHealthComponent.health -= _damage;
 
