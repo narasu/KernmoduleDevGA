@@ -14,6 +14,7 @@ public class Weapon
         ammo = maxAmmo;
         projectileManager = _projectileManager;
         EventManager.Subscribe(EventType.RELOAD, Reload);
+        EventManager.Subscribe(EventType.SHOOT, Shoot);
     }
 
     //TODO: subscribe to Shoot Input event
@@ -40,5 +41,6 @@ public class Weapon
     ~Weapon()
     {
         EventManager.Unsubscribe(EventType.RELOAD, Reload);
+        EventManager.Unsubscribe(EventType.SHOOT, Shoot);
     }
 }

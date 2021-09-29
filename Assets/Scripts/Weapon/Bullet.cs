@@ -13,10 +13,10 @@ public class Bullet : IProjectile, IDamager
     public Bullet(DamageInfo _damageInfo)
     {
         pDamageInfo = _damageInfo;
-        damage.Add(pDamageInfo.damageType, pDamageInfo.damage);
-        Decorate(new DamageDecorator(new DamageInfo(10.0f, DamageType.FIRE)));
-        Decorate(new DamageDecorator(new DamageInfo(4.0f, DamageType.FIRE)));
-        Decorate(new DamageDecorator(new DamageInfo(10.0f, DamageType.SASS)));
+        damage.Add(pDamageInfo.pDamageType, pDamageInfo.pDamage);
+        Decorate(new DamageInfo(10.0f, DamageType.FIRE));
+        Decorate(new DamageInfo(4.0f, DamageType.FIRE));
+        Decorate(new DamageInfo(10.0f, DamageType.SASS));
     }
 
     public void Update()
@@ -30,7 +30,7 @@ public class Bullet : IProjectile, IDamager
          */
     }
 
-    public void Decorate(DamageDecorator _decorator)
+    public void Decorate(DamageInfo _decorator)
     {
         if (!damage.ContainsKey(_decorator.pDamageType))
         {

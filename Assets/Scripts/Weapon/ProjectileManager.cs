@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// ProjectileManager maintains a list of all instances of IProjectile and updates them.
+/// </summary>
 public class ProjectileManager
 {
     private List<IProjectile> projectiles = new List<IProjectile>();
@@ -18,4 +21,6 @@ public class ProjectileManager
             projectiles[i].Update();
         }
     }
+
+    
 }
