@@ -14,7 +14,7 @@ public class Enemy : IDamageable
     }
 
     //spawner gives health
-    public Enemy(int _health)
+    public Enemy(float _health)
     {
         enemyFSM = new FSM<Enemy>(this);
         pHealthComponent = new HealthComponent(_health);
@@ -41,7 +41,7 @@ public class Enemy : IDamageable
     }
 
 
-    public void TakeDamage(int _damage)
+    public void TakeDamage(float _damage)
     {
         pHealthComponent.health -= _damage;
 
