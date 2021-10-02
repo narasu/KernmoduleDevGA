@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The Weapon class listens to input events to create bullets and feeds them through to the ProjectileManager.
+/// </summary>
 public class Weapon
 {
     private int ammo;
@@ -17,7 +20,6 @@ public class Weapon
         EventManager.Subscribe(EventType.SHOOT, Shoot);
     }
 
-    //TODO: subscribe to Shoot Input event
     public void Shoot() 
     {
         if (ammo <= 0)

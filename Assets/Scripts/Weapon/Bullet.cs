@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The Bullet class is a projectile fired from a weapon that can damage an IDamageable object.
+/// </summary>
 public class Bullet : IProjectile, IDamager
 {
     private Dictionary<DamageType, float> damage = new Dictionary<DamageType, float>();
@@ -28,6 +31,7 @@ public class Bullet : IProjectile, IDamager
          *     OnHit();
          * }
          */
+        IDamageable i;
     }
 
     public void Decorate(DamageInfo _decorator)

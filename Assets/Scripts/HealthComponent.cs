@@ -1,5 +1,5 @@
 /// <summary>
-/// HealthComponent needs to be used in any class that implements the IDamageable interface
+/// HealthComponent contains the health value of an entity and is required by the IDamageable interface.
 /// </summary>
 public class HealthComponent
 {
