@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     private PlayerController player;
     private CameraController camera;
     private NPCManager NPCs;
+    private EnemyManager enemyManager;
     [SerializeField] private GameObject playerInstance;
     [SerializeField] private GameObject cameraInstance;
     [SerializeField] private GameObject NPCPrefab;
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
         player = new PlayerController(playerInstance);
         camera = new CameraController(cameraInstance, playerInstance);
         NPCs = new NPCManager(NPCPrefab);
+        enemyManager = new EnemyManager();
     }
 
     // Update is called once per frame
@@ -29,6 +31,7 @@ public class GameManager : MonoBehaviour
         inputHandler.HandleInput();
         camera.FollowPlayer();
         NPCs.UpdateNPC(playerInstance.transform.position);
+        enemyManager.UpdateEnemies();
     }
 
 }

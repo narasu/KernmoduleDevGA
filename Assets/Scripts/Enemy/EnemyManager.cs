@@ -4,15 +4,17 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-//TODO: figure out what's happening in this class?
+
 public class EnemyManager
 {
+    public int enemyWaveAmount;
+    public List<Enemy> enemyList = new List<Enemy>();
+    public Vector3 playerPosition;
+
     private Enemy enemy;
     //DISCUSS: give health here or in the game manager
     private float health = 100;
-    public int enemyWaveAmount;
-    public List<Enemy> enemyList = new List<Enemy>();
-
+    //placeholder values
     private float randomXValueMin = 1f;
     private float randomXValueMax = 10f;
     private float randomYValueMin = 1f;
@@ -20,15 +22,17 @@ public class EnemyManager
 
     //DISCUSS: need the updated player position
     //SOLVED: GameManager Singleton
-    EnemyManager(/*playerposition?*/ int enemyWaveAmount)
+    public EnemyManager(/*vector3 _playerPosition?*/)
     {
-        enemy = new Enemy(health);
-    }
 
-    //DISCUSS: can spawn enemies with other healths from here, but would this be a good idea?
-    public void SpawnEnemies(/*float _health*/)
+        enemy = new Enemy(health);
+        //start wave
+        SpawnEnemies(10);
+    }
+    
+    public void SpawnEnemies(/*float _health*/ int _enemyWaveAmount)
     {
-        for(int i = 0; i < enemyWaveAmount; i++)
+        for(int i = 0; i < _enemyWaveAmount; i++)
         {
             //instantiate new enemy with _health + GiveRandomLocation()
             //
@@ -36,22 +40,25 @@ public class EnemyManager
         }
         //spawn enemies
         //enemies in list?
-
     }
 
-    //reference to the player instance?
+    public void OnDeath(Enemy _enemy)
+    {
+        enemyList.Remove(_enemy);
+    }
+
     public void UpdateEnemies()
     {
         foreach(Enemy enemy in enemyList){
-          enemy?.Update(/*playerposition?*/);
+          enemy?.Update(playerPosition);
         }
     }
 
-    private Vector3 GiveRandomLocation() 
+    private Vector3 GiveRandomLocation()
     {
-        //geef een random locatie, placeholder
-        Vector3 location = new Vector3(Random.Range(randomXValueMin,randomXValueMax),0, Random.Range(randomYValueMin, randomYValueMax));
-        return location; 
-    }    
-    
+        //give randomLocation for spawning
+        Vector3 location = new Vector3(Random.Range(randomXValueMin, randomXValueMax), 0, Random.Range(randomYValueMin, randomYValueMax));
+        return location;
+    }
+
 }

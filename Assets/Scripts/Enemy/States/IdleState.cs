@@ -10,23 +10,23 @@ public class IdleState: AbstractState<Enemy>
 
     public override void OnEnter()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public override void OnExit()
     {
-        throw new System.NotImplementedException();
+
     }
 
     public override void OnUpdate()
     {
-        if (Input.GetKey(KeyCode.F))
-        {
-            //Transition class for the transitions -> abstract 
-            owner.SwitchState(typeof(AttackState));
-            ////Voorbeeld opvragen enemyhealth
-            //owner.pOwner.health = 100;
-        }
+        //IDEA: Transition class for the transitions -> abstract 
+        owner.pOwner.WalkToRandomPosition();
+        //if (owner.pOwner.distanceToTarget >=  /*must be Vector3*/)
+        //{
+        //    owner.pOwner.hasHitPlayer = true;
+        //    owner.SwitchState(typeof(IdleState));
+        //}
     }
 
 }
