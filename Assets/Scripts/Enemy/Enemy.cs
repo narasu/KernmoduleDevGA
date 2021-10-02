@@ -53,11 +53,12 @@ public class Enemy : IDamageable
     public void OnHealthZero()
     {
         //die
+        //TODO: shout I died
     }
 
 
     // TODO: call enemy update in monobehaviour
-    void Update()
+    public void Update()
     {
         enemyFSM.Update();
     }
