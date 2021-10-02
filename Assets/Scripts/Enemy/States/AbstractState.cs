@@ -7,6 +7,7 @@ public abstract class AbstractState<T>
     public abstract void OnEnter();
     public abstract void OnExit();
     public abstract void OnUpdate();
+    
     ////transitions 
     //public virtual void CheckTransitions()
     //{
