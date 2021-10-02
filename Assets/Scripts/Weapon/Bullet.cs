@@ -49,7 +49,7 @@ public class Bullet : IProjectile, IDamager
         foreach (KeyValuePair<DamageType, float> kvp in damage)
         {
             Debug.Log("Did " + kvp.Value + " damage of type " + kvp.Key);
+            // IDamageable.TakeDamage(kvp.Value, kvp.Key); 
         }
-        //destroy gameobject
     }
 }
