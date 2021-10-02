@@ -16,9 +16,12 @@ public class ProjectileManager
 
     public void Update()
     {
-        for(int i = 0; i < projectiles.Count; i++)
+        if (projectiles.Count > 0)
         {
-            projectiles[i].Update();
+            for(int i = 0; i < projectiles.Count; i++)
+            {
+                projectiles[i].Update();
+            }
         }
     }
 

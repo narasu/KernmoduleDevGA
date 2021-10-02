@@ -4,5 +4,5 @@
 public interface IProjectile
 {
     void Update();
-    void OnHit();
+    void OnHit(IDamageable _damageable = null);
 }

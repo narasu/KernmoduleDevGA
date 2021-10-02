@@ -25,13 +25,13 @@ public class Bullet : IProjectile, IDamager
     public void Update()
     {
         /* TODO:
-         * move in direction
-         * if (collision with IDamageable)
+         * transform.Translate(transform.forward * speed * Time.deltaTime);
+         * 
+         * if (collision with IDamageable damageable)
          * {
-         *     OnHit();
+         *     OnHit(damageable);
          * }
          */
-        IDamageable i;
     }
 
     public void Decorate(DamageInfo _decorator)
@@ -44,12 +44,19 @@ public class Bullet : IProjectile, IDamager
         damage[_decorator.pDamageType] += _decorator.pDamage;
     }
 
-    public void OnHit()
+    public void OnHit(IDamageable _damageable = null)
     {
-        foreach (KeyValuePair<DamageType, float> kvp in damage)
+        if (_damageable != null)
         {
-            Debug.Log("Did " + kvp.Value + " damage of type " + kvp.Key);
-            // IDamageable.TakeDamage(kvp.Value, kvp.Key); 
+            foreach (KeyValuePair<DamageType, float> kvp in damage)
+            {
+                Debug.Log("Did " + kvp.Value + " damage of type " + kvp.Key);
+                // _damageable.TakeDamage(kvp.Value, kvp.Key); 
+            }
         }
+
+        // play sfx
+        // particles
+        // destroy bullet
     }
 }
