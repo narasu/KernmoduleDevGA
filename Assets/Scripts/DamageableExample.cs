@@ -11,7 +11,7 @@ public class DamageableExample : IDamageable
         pHealthComponent.health = _health;
     }
 
-    public void TakeDamage(float _damage)
+    public void TakeDamage(float _damage, DamageType _damageType = DamageType.BASE)
     {
         pHealthComponent.health -= _damage;
 
