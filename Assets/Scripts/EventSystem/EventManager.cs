@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Enums of all eventtypes
 public enum EventType
 {    
     JUMP             = 0,
@@ -13,10 +14,12 @@ public enum EventType
     SHOOT            = 6
 }
 
+//Eventmanager takes care of all the events
 public static class EventManager
 {
     private static Dictionary<EventType, System.Action> eventDictionary = new Dictionary<EventType, System.Action>();
 
+    //Used for subscribing to events
     public static void Subscribe(EventType _type, System.Action _function)
     {
         if (!eventDictionary.ContainsKey(_type))
@@ -26,6 +29,7 @@ public static class EventManager
         eventDictionary[_type] += _function;
     }
 
+    //Used for unsubscribing from events
     public static void Unsubscribe(EventType _type, System.Action _function) 
     {
         if (eventDictionary.ContainsKey(_type) && eventDictionary[_type] != null)
@@ -34,6 +38,7 @@ public static class EventManager
         }
     }
 
+    //Used for invoking events
     public static void Invoke(EventType _type)
     {
         eventDictionary[_type]?.Invoke();
