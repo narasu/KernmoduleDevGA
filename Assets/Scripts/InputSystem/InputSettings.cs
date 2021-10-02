@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//These are the default inputsettings
 public class InputSettings
 {
-
+    //configure keys to type of input
     public KeyCode forward = KeyCode.W;
     public KeyCode backward = KeyCode.S;
     public KeyCode left = KeyCode.A;
@@ -15,6 +16,7 @@ public class InputSettings
 
     private InputHandler inputHandler;
 
+    //Add commands to inputhandler
     public InputSettings(InputHandler _inputHandler)
     {
         inputHandler = _inputHandler;
