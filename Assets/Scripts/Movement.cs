@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Handles that the player can move
 public class Movement
 {
     private GameObject playerInstance;
     private Vector3 movement;
     private float speed = 0.01f;
 
+    //Gets playerinstance and subscribes to the input events
     public Movement(GameObject _playerInstance)
     {
         playerInstance = _playerInstance;
@@ -55,6 +57,7 @@ public class Movement
         playerInstance.transform.rotation = Quaternion.Slerp(playerInstance.transform.rotation, walkDir, 1);
     }
 
+    //Unsubscribes from events when destroyd
     ~Movement()
     {
         EventManager.Unsubscribe(EventType.MOVE_FORWARDS, Forward);
